@@ -1,6 +1,6 @@
 {
   "name": "Clipboard Search",
-  "description": "Redirects newly opened tabs to the last text copied to your clipboard if within 3 seconds of copying text",
+  "description": "Redirects newly opened tabs to the last text copied to your clipboard if within 5 seconds of copying text",
   "version": "1.0.0",
   "manifest_version": 2,
   "background": {
