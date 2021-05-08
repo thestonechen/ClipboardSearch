@@ -11,18 +11,14 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 
 chrome.tabs.onCreated.addListener((tab) => {
 	if (copiedItem === "" || copiedItemTime === "") {
-		return
+		return;
 	}
 
-	let currentTime = performance.now()
-	var timeElapsed = currentTime - copiedItemTime
+	let currentTime = new Date().getTime();
+	var timeElapsedInSeconds = Math.round((currentTime - copiedItemTime) / 1000);
 
-	// Convert to seconds
-	timeElapsed = Math.round(timeElapsed / 1000)
-	console.log(timeElapsed);
-	console.log(copiedItem)
-
-	if (timeElapsed <= maximumElapsedTimeToGoogleInSeconds) {		
+	if (timeElapsedInSeconds <= maximumElapsedTimeToGoogleInSeconds) {
+		console.log("redirecting to new page")		
 		chrome.tabs.update({
 			active: true,
 			url: `${googleSearchQuery}${copiedItem}`

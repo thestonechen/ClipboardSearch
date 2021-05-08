@@ -3,7 +3,7 @@ document.addEventListener('copy', () => {
 		.then(res =>  {
 			chrome.runtime.sendMessage({
 				message: 'copiedItem',
-				payload: {copiedItem: `"${res}"`, copiedTime: performance.now()}
+				payload: {copiedItem: `"${res}"`, copiedTime: new Date().getTime()}
 			});
 		})
 		.catch(err => console.log(err))
